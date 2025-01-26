@@ -27,5 +27,9 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:latest
+        tags: |
+          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:${{ github.run_id }} # 使用 GitHub 运行 ID 作为版本号
+          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:$(date +'%Y%m%d') # 使用日期作为标签
+        platforms: linux/amd64,linux/arm64 # 生成 amd64 和 arm64 镜像
 
