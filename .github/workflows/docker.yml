@@ -22,6 +22,10 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Set date
+      id: set_date
+      run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
@@ -29,7 +33,7 @@ jobs:
         push: true
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:${{ github.run_id }} 
-          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:$(date +'%Y%m%d') 
+          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:${{ github.run_id }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/fm-proxy:${{ env.DATE }} 
         platforms: linux/amd64,linux/arm64
 
