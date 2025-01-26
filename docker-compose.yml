@@ -1,0 +1,27 @@
+services:
+  fm-proxy:
+    build:
+      context: .
+    image: fm-proxy
+    container_name: fm-proxy
+    environment:
+      #FM_USER: "aaron"
+      #FM_PASSWORD: "1234"
+      #FM_ACCESS_KEY: "5555"
+      FM_M3U8_URL_1: "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8"
+      FM_MP3_NAME_1: "cnr1.mp3"
+      FM_MP3_PATH_1: "cnr1"
+      FM_M3U8_URL_2: "http://ngcdn002.cnr.cn/live/jjzs/index.m3u8"
+      FM_MP3_NAME_2: "cnr2.mp3"
+      FM_MP3_PATH_2: "cnr2"
+      FM_M3U8_URL_18: "http://ngcdn003.cnr.cn/live/yyzs/index.m3u8"
+      FM_MP3_NAME_18: "cnr3.mp3"
+      FM_MP3_PATH_18: "cnr3"
+      FM_M3U8_URL_4: "http://ngcdn010.cnr.cn/live/wyzs/index.m3u8"
+      FM_MP3_NAME_4: "cnr4.mp3"
+      FM_MP3_PATH_4: "cnr4"
+      FM_M3U8_URL_5: "https://voa-ingest.akamaized.net/hls/live/2035206/151_124L/playlist.m3u8"
+      FM_MP3_NAME_5: "voa.mp3"
+      FM_MP3_PATH_5: "voa"
+    ports:
+      - "8000:8000"
