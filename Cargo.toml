@@ -1,0 +1,11 @@
+[package]
+name = "fm_proxy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.0"
+tokio = { version = "1", features = ["full"] }
+log = "0.4"
+simplelog = "0.10"
+psutil = "0.1"  # 根据需要添加其他依赖项
